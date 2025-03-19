@@ -146,3 +146,47 @@ let newele=document.createElement('u')
 newele.innerHTML="new text"
 range.surroundContents(newele);
 ```
+
+
+## Selection
+```Range``` is a generic object for managing selection ranges. Although, creating a ```Range``` doesn’t mean that we see a selection on screen.
+
+The document selection is represented by ```Selection``` object, that can be obtained as ```window.getSelection()``` or ```document.getSelection()```.
+Ex:-
+```js
+console.log(document.getSelection());
+```
+
+### Selection properties
+The main selection properties are:
+
+- ```anchorNode``` – the node where the selection starts,
+    Ex:-
+    ```js
+    range.selectNode(ele.querySelector('b'));
+    console.log(document.getSelection().anchorNode)
+    ```
+- ```anchorOffset``` – the offset in anchorNode where the selection starts,
+    Ex:-
+    ```js
+    range.selectNode(ele.querySelector('b'));
+    console.log(document.getSelection().anchorOffset)
+    ```
+- ```focusNode``` – the node where the selection ends.
+    Ex:-
+    ```js
+    range.setStart(ele,2);
+    range.setEnd(ele,4);
+    document.getSelection().addRange(range);
+    console.log(document.getSelection().focusNode)
+    ```
+- ```focusOffset``` – the offset in focusNode where the selection ends,
+    Ex:-
+    ```js
+    range.setStart(ele,2);
+    range.setEnd(ele,3);
+    document.getSelection().addRange(range);
+    console.log(document.getSelection().focusOffset);
+    ```
+- ```isCollapsed``` – true if selection selects nothing (empty range), or doesn’t exist.
+- ```rangeCount``` – count of ranges in the selection, maximum 1 in all browsers except Firefox.

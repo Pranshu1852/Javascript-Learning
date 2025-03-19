@@ -49,3 +49,9 @@ range.surroundContents(newele);
 // console.log(range.extractContents());
 
 
+
+//selection
+range.setStart(ele,2);
+range.setEnd(ele,3);
+document.getSelection().addRange(range);
+console.log(document.getSelection().rangeCount);
